@@ -9,8 +9,8 @@ services:
       - ./.env
     environment:
       NODE_ENV: production
-      PORT: 4000
-      CORS_ORIGIN: http://localhost:8080
+      PORT: ${PORT:-4000}
+      CORS_ORIGIN: ${CORS_ORIGIN}
     ports:
       - "4000:4000"
     healthcheck:
