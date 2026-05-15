@@ -8,7 +8,21 @@ const app = express();
 
 app.use(
   cors({
-    origin: env.corsOrigin === "*" ? true : env.corsOrigin,
+    origin(origin, callback) {
+      if (env.corsOrigins === "*" || !origin) {
+        callback(null, true);
+        return;
+      }
+
+      const normalizedOrigin = origin.replace(/\/$/, "");
+
+      if (env.corsOrigins.includes(normalizedOrigin)) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Not allowed by CORS"));
+    },
   }),
 );
 app.use(express.json());

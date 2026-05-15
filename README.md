@@ -10,7 +10,7 @@ Express сервер для AI Assistant.
 OPENAI_API_KEY=your_openai_api_key
 OPENAI_MODEL=gpt-4.1-mini
 PORT=4000
-CORS_ORIGIN=https://assistant-lnm3tim5c-dramazzans-projects.vercel.app
+CORS_ORIGIN=https://assistant-fe.vercel.app
 ```
 
 ## Запуск
